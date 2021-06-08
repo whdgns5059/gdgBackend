@@ -9,8 +9,11 @@ import java.util.Optional;
 @Service
 public class UserService {
 
-    @Autowired
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
+
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
+    }
 
     public Users findById(Long id){
         return userRepository.findById(id).get();
@@ -28,5 +31,9 @@ public class UserService {
         userRepository.deleteById(id);
     }
 
+    public boolean join(String email, String password){
+        Users users = userRepository.save(Users.of(email, password));
+        return users != null;
+    }
 
 }
