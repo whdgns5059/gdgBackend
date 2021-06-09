@@ -16,15 +16,13 @@ class UserRepositoryTest {
 
     @Test
     void findById() {
-
-        Optional<Users> users = userRepository.findById((long)1);
-
-        assertEquals("asdf@asdf.or.kr", users.get().getEmail());
-
+        Optional<Users> users = userRepository.findById(1L);
+        assertEquals(1L, users.get().getId());
     }
 
     @Test
     void findByEmail() {
+
     }
 
     @Test
