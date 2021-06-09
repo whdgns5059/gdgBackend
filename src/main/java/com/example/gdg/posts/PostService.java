@@ -7,11 +7,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class PostService {
 
-    private final PostRepository postRepository;
-    private final UserRepository userRepository;
+    private PostRepository postRepository;
+    private UserRepository userRepository;
 
     public PostService(PostRepository postRepository, UserRepository userRepository) {
         this.postRepository = postRepository;
+        this.userRepository = null;
+    }
+
+    public void setUserRepository(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

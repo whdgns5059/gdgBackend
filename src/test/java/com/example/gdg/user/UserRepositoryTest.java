@@ -1,6 +1,8 @@
 package com.example.gdg.user;
 
 import org.junit.jupiter.api.Test;
+import org.mockito.Mock;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -11,13 +13,14 @@ import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest
 class UserRepositoryTest {
 
-    @Autowired
+    @Mock
     private UserRepository userRepository;
 
     @Test
     void findById() {
-        Optional<Users> users = userRepository.findById(1L);
-        assertEquals(1L, users.get().getId());
+
+        Optional<Users> user = userRepository.findById(1L);
+        assertEquals(1L, user.get().getId());
     }
 
     @Test
@@ -31,5 +34,25 @@ class UserRepositoryTest {
 
     @Test
     void deleteById() {
+    }
+
+    @Test
+    void testFindById() {
+    }
+
+    @Test
+    void testFindByEmail() {
+    }
+
+    @Test
+    void testUpdatePassword() {
+    }
+
+    @Test
+    void testDeleteById() {
+    }
+
+    @Test
+    void save() {
     }
 }
